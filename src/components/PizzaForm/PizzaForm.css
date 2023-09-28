@@ -2,13 +2,13 @@
     display: grid;
     flex-direction: row;
     justify-content: center;
-    border: 2px solid black;
     height: 50px;
     gap: 15px;
 }
 
 input {
     background-color: rgb(241, 118, 18);
+    border-radius: 5px;
     font-size: 20px;
 
 }
@@ -22,6 +22,7 @@ input::placeholder {
     border-radius: 10px;
     color:aliceblue;
     height: 30px;
+    font-size: 16px;
 }
 
 .checkBtn:hover {

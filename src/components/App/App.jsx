@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import { useDispatch } from "react-redux";
-import { HashRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import PizzaList from "../PizzaList/PizzaList";
 // import TotalPrice from "../TotalPrice/TotalPrice";
 import PizzaForm from "../PizzaForm/PizzaForm";
+import Checkout from "../Checkout/Checkout";
 import Header from "../Header/Header";
 import Admin from "../Admin/Admin";
 
@@ -26,18 +27,15 @@ function App() {
       });
   };
 
-
   // POST axios w/ function
   const postPizzas = () => {
     axios
       .post("/api/pizza") //need to post to pizzaList??
       .then((response) => {
-        
         dispatch({
           type: "POST_PIZZAS",
           payload: something.something,
-          
-        }); 
+        });
       })
       .catch((err) => {
         console.log("Error in Posting pizzas", err);
@@ -46,29 +44,30 @@ function App() {
 
   return (
     <Router>
-      
       <div className="App">
-      <Switch>
-      <Header />
+        <Header />
         <br />
         <ul>
-          <Link to="/">Menu</Link>
+          <Link className="link" to="/">Menu</Link>
         </ul>
         <ul>
-          <Link to="/form">Order</Link>
+          <Link className="link" to="/form">Order</Link>
         </ul>
         <ul>
-          <Link to="/checkout">Checkout</Link>
+          <Link className="link" to="/checkout">Checkout</Link>
         </ul>
+        <hr />
         <Route path="/admin">
           <Admin />
         </Route>
-        </Switch>
         <Route exact path="/">
           <PizzaList />
         </Route>
         <Route exact path="/form">
           <PizzaForm />
+        </Route>
+        <Route exact path="/checkout"> 
+          <Checkout />
         </Route>
       </div>
     </Router>

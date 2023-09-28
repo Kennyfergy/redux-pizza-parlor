@@ -3,11 +3,16 @@ import { useDispatch } from "react-redux";
 
 
 export default function PizzaListItem({ pizza }) {
-
 const dispatch = useDispatch();
-  const [newPizza, setNewPizza] = useState('');
+const [numberOfPizzas, setNumberOfPizzas] = useState(0)
+  
 
   const addToCart = () => {
+    const newLineItem = {
+      order_id: "FROM CUSTOMER INFORMATION",
+      pizza_id: pizza.id,
+      quantity: numberOfPizzas
+    }
     //console.log('clickyclick');
     dispatch({
       type: "POST_PIZZAS",
@@ -16,7 +21,7 @@ const dispatch = useDispatch();
     });
  
   }
-  
+  ////need an axios to save the add to cart items to database so they refresh and it persists, **line items table in database
   return (
     <div>
       <ul>
@@ -32,7 +37,8 @@ const dispatch = useDispatch();
         <ul>Description: {pizza.description}</ul>
       </ul>
       <br />
-      <button onClick={addToCart}setNewPizza={setNewPizza} >Add to Cart</button>
+      <input type="number" value={numberOfPizzas} onChange={(e) => setNumberOfPizzas(e.target.value)} />
+      <button onClick={addToCart} >Add to Cart</button>
       <br />
       <br />
     </div>

@@ -20,6 +20,8 @@
 .totalPrice {
 
   text-align: right;
+}
 
-  
+.link:hover {
+  background-color: blueviolet;
 }

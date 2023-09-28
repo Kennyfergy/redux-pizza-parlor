@@ -25,11 +25,21 @@ const orderListReducer = (state = [], action) => {
     }
 }
 
+const customerReducer = (state = [], action ) => {
+    switch (action.type){
+        case "UPDATE_CUSTOMER":
+        return [...state, action.payload];
+        default:
+            return state;
+}
+}
+
 const store = createStore(
     combineReducers({
         //add reducers here
         pizzaReducer,
-        orderListReducer
+        orderListReducer,
+        customerReducer
     }),
     applyMiddleware(logger)
 )

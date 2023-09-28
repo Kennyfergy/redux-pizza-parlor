@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import { useHistory } from "react-router-dom";
 import "./PizzaForm.css";
 
@@ -17,7 +16,7 @@ export default function PizzaForm() {
     console.log("handleSubmit", event);
     event.preventDefault();
     dispatch({
-      type: "POST_PIZZAS",
+      type: "UPDATE_CUSTOMER", //update customer
       payload: {
         name: newName,
         address: newAddress,
@@ -47,6 +46,7 @@ export default function PizzaForm() {
           handleSubmit;
         }}
       >
+        
         <input
           id="input"
           required
