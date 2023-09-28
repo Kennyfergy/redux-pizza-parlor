@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import { useDispatch } from 'react-redux';
 import PizzaList from '../PizzaList/PizzaList';
-
+import TotalPrice from '../TotalPrice/TotalPrice';
 
 function App() {
   const dispatch = useDispatch();
@@ -33,9 +33,12 @@ const postPizzas = () => {
   return (
     <div className='App'>
       <header className='App-header'>
-        <h1 className='App-title'>Prime Pizza</h1>
+        <h1 className='App-title'>Prime Pizza
+        </h1>
+        <div className='totalPrice'><TotalPrice /></div>
+        
       </header>
-  
+      
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
       <br />

@@ -3,6 +3,8 @@
 }
 
 .App-header {
+  display: flex;
+  align-items: center;
   background-color: #222;
   height: 70px;
   padding: 20px;
@@ -12,4 +14,10 @@
 
 .App-title {
   font-size: 2em;
+}
+
+.totalPrice {
+  align-items: flex-end;
+  text-align: end;
+  
 }
