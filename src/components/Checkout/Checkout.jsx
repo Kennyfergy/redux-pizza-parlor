@@ -1,24 +1,34 @@
 import { useSelector } from "react-redux";
-// import CheckoutListItem from "../CheckoutListItem/CheckoutListItem";
+import CheckoutListItem from "../CheckoutListItem/CheckoutListItem";
 import "./Checkout.css";
 
-// maybe a get request from database to access the line_items data/cart data
 export default function Checkout() {
-    const cart = useSelector((store) => store.customerReducer)
+  const cart = useSelector((store) => store.customerReducer);
+  console.log("Customer Data:", cart);
 
-    return (
-        <table className="cart-table">
+  return (
+    <table className="cart-table">
       <thead>
         <tr>
-          <th>Change Me</th>
-          <th>Change Me</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>City</th>
+          <th>Zip Code</th>
+          <th>Delivery Method</th>
         </tr>
       </thead>
-      <tbody>
-          {/* {cart.map((item, i) => {
-            return <CheckoutListItem key={item.id} item={item} />
-            })} */}
-      </tbody>
+      {/* <tbody>
+      {cart.map((customer, index) => (
+            <tr key={index}>
+              <td>{customer.name}</td>
+              <td>{customer.address}</td>
+              <td>{customer.city}</td>
+              <td>{customer.zip}</td>
+              <td>{customer.DeliveryMethod}</td>
+            </tr>
+          ))} */}
+        <CheckoutListItem />
+      {/* </tbody> */}
     </table>
-    );
+  );
 }
