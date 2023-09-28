@@ -22,8 +22,9 @@ const getPizzas = () => {
 const postPizzas = () {
   axios.post("/api/pizza")
   .then((response) => {
-    dispat
+    dispatch({type: "POST_PIZZAS", payload: response.data})
   })
+  .catch((err) => console.log("Error in Posting pizzas", err))
 }
   
   return (
