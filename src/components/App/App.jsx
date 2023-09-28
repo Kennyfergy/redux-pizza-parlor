@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import axios from 'axios';
 import './App.css';
 import { useDispatch } from 'react-redux';
+import PizzaList from '../PizzaList/PizzaList';
 
 
 function App() {
@@ -19,13 +20,15 @@ const getPizzas = () => {
   });
 };
   // POST axios w/ function
-const postPizzas = () {
-  axios.post("/api/pizza")
+const postPizzas = () => {
+  axios.post("/api/pizza") //need to post to pizzaList??
   .then((response) => {
-    dispatch({type: "POST_PIZZAS", payload: response.data})
+    dispatch({ type: "POST_PIZZAS", payload: something.something })  /* need from handlesubmit??*/ 
   })
-  .catch((err) => console.log("Error in Posting pizzas", err))
-}
+  .catch((err) => {
+    console.log("Error in Posting pizzas", err)
+  })
+};
   
   return (
     <div className='App'>
@@ -35,6 +38,8 @@ const postPizzas = () {
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+      <br />
+      <PizzaList  />
   
     </div>
   );
