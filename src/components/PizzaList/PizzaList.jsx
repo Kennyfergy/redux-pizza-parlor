@@ -9,6 +9,8 @@ export default function PizzaList() {
 
   return (
     <div className="pizzas">
+      <h2>Menu</h2>
+      <hr />
       <ul>
         {pizzas.map((pizza, i) => (
           <PizzaListItem key={i} pizza={pizza}/>

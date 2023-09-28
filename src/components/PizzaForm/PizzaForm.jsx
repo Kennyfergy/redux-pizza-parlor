@@ -8,13 +8,21 @@ export default function PizzaForm() {
     const [newAddress, setNewAddress] = useState('');
     const [newCity, setNewCity] = useState('');
     const [newZip, setNewZip] = useState('');
-    
+    const [newDeliveryMethod, setNewDeliveryMethod] = useState('');
     const dispatch = useDispatch();
 
 const handleSubmit = (event) => {
     console.log('handleSubmit', event);
     event.preventDefault();
-    dispatch({ type: "POST_PIZZAS", payload: {name: newName, address: newAddress, city: newCity, zip: newZip }})
+    dispatch({ type: "POST_PIZZAS", payload: {name: newName, address: newAddress, city: newCity, zip: newZip, DeliveryMethod: newDeliveryMethod}})
+    console.log('deliveryMethod', newDeliveryMethod);
+
+    //emptying input fields
+    setNewName('');
+    setNewAddress('');
+    setNewCity('');
+    setNewDeliveryMethod('');
+    setNewZip('');
 }
 
     return (
@@ -45,6 +53,25 @@ const handleSubmit = (event) => {
             value={newZip}
             onChange={(event) => setNewZip(event.target.value)}
           />
+          <label>
+            Pickup
+  <input
+    type="radio"
+    name="Pickup"
+    value="Pickup"
+    onChange={(event) => setNewDeliveryMethod(event.target.value)}
+  />
+  </label>
+  <label>
+    Delivery
+  <input
+    type="radio"
+    name="Delivery"
+    value="Delivery"
+    onChange={(event) => setNewDeliveryMethod(event.target.value)}
+  />
+ 
+</label>
           <button onClick={handleSubmit} className="checkBtn" type="submit">Move to Order Page</button>
         </form>
       </section>
