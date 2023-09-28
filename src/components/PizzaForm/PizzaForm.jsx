@@ -1,25 +1,52 @@
-// // import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
-// // import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-// // import "./PizzaForm.css";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import "./PizzaForm.css";
 
-// export default function ArtistForm() {
-//     // const [newPizza, setNewPizza] = useState('');
+export default function PizzaForm() {
+    const [newName, setNewName] = useState('');
+    const [newAddress, setNewAddress] = useState('');
+    const [newCity, setNewCity] = useState('');
+    const [newZip, setNewZip] = useState('');
     
-//     const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-//     return (
-//         <section>
-//         <h2>Add Pizza:</h2>
-//         <form className="add-pizza-form"> 
-//           <input
-//             required
-//             placeholder="Name"
-//             value={newName}
-//             onChange={(event) => setNewName(event.target.value)}
-//           />
-//           <button className="checkBtn" type="submit"><CheckCircleIcon /></button>
-//         </form>
-//       </section>
-//     );
-// };
+const handleSubmit = (event) => {
+    console.log('handleSubmit', event);
+    event.preventDefault();
+    dispatch({ type: "POST_PIZZAS", payload: {name: newName, address: newAddress, city: newCity, zip: newZip }})
+}
+
+    return (
+        <section>
+        <h2>Add Pizza:</h2>
+        <form className="add-pizza-form" onSubmit={() => {handleSubmit}}> 
+          <input
+            required
+            placeholder="Name"
+            value={newName}
+            onChange={(event) => setNewName(event.target.value)}
+          />
+          <input
+            required
+            placeholder="Address"
+            value={newAddress}
+            onChange={(event) => setNewAddress(event.target.value)}
+          />
+          <input
+            required
+            placeholder="City"
+            value={newCity}
+            onChange={(event) => setNewCity(event.target.value)}
+          />
+          <input
+            required
+            placeholder="Zip Code"
+            value={newZip}
+            onChange={(event) => setNewZip(event.target.value)}
+          />
+          <button onClick={() => {handleSubmit}} className="checkBtn" type="submit">Add To Order</button>
+        </form>
+      </section>
+    );
+};

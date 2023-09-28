@@ -1,0 +1,12 @@
+.add-pizza-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    height: 50px;
+    gap: 15px;
+}
+
+input {
+    background-color: tomato;
+}
