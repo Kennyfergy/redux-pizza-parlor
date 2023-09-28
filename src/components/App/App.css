@@ -18,10 +18,10 @@
 }
 
 .totalPrice {
-
   text-align: right;
 }
 
-.link:hover {
+a:hover {
   background-color: blueviolet;
+  color: ghostwhite;
 }

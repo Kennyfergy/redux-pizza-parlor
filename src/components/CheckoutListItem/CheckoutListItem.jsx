@@ -1,7 +1,7 @@
-export default function CheckoutListItem(item) {
-    return (
-        <tr>
-            <td>{item}</td>
-        </tr>
-    );
-}
+// export default function CheckoutListItem(item) {
+//     return (
+//         <tr>
+//             <td>{item}</td>
+//         </tr>
+//     );
+// }

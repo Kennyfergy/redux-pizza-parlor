@@ -48,13 +48,17 @@ function App() {
         <Header />
         <br />
         <ul>
-          <Link className="link" to="/">Menu</Link>
+          <Link className="link" to="/">
+            Menu
+          </Link>
         </ul>
         <ul>
-          <Link className="link" to="/form">Order</Link>
+          <Link className="link" to="/form">
+            Order
+          </Link>
         </ul>
         <ul>
-          <Link className="link" to="/checkout">Checkout</Link>
+          <Link to="/checkout">Checkout</Link>
         </ul>
         <hr />
         <Route path="/admin">
@@ -66,7 +70,7 @@ function App() {
         <Route exact path="/form">
           <PizzaForm />
         </Route>
-        <Route exact path="/checkout"> 
+        <Route exact path="/checkout">
           <Checkout />
         </Route>
       </div>
