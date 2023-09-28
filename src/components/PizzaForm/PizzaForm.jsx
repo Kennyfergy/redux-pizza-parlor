@@ -19,7 +19,7 @@ const handleSubmit = (event) => {
 
     return (
         <section>
-        <h2>Add Pizza:</h2>
+        <h2>Customer Info</h2>
         <form className="add-pizza-form" onSubmit={() => {handleSubmit}}> 
           <input
             required
@@ -45,7 +45,7 @@ const handleSubmit = (event) => {
             value={newZip}
             onChange={(event) => setNewZip(event.target.value)}
           />
-          <button onClick={() => {handleSubmit}} className="checkBtn" type="submit">Add To Order</button>
+          <button onClick={handleSubmit} className="checkBtn" type="submit">Move to Order Page</button>
         </form>
       </section>
     );
