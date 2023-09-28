@@ -1,5 +1,5 @@
 .add-pizza-form {
-    display: flex;
+    display: grid;
     flex-direction: row;
     justify-content: center;
     border: 2px solid black;
@@ -8,7 +8,22 @@
 }
 
 input {
-    background-color: tomato;
-    color: black;
-    
+    background-color: rgb(241, 118, 18);
+    font-size: 20px;
+
+}
+
+input::placeholder {
+    color: ghostwhite;
+}
+
+.checkBtn {
+    background-color: rgb(18, 8, 130);
+    border-radius: 10px;
+    color:aliceblue;
+    height: 30px;
+}
+
+.checkBtn:hover {
+    background-color: rgb(124, 120, 172);
 }

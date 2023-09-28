@@ -19,7 +19,7 @@ const pizzaReducer = (state = [], action) => {
 const orderListReducer = (state = [], action) => {
     switch (action.type) {
         case "POST_PIZZAS":
-            return action.payload
+            return [...state, action.payload];
         default:
             return state;
     }

@@ -1,4 +1,22 @@
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+
 export default function PizzaListItem({ pizza }) {
+
+const dispatch = useDispatch();
+  const [newPizza, setNewPizza] = useState('');
+
+  const addToCart = () => {
+    //console.log('clickyclick');
+    dispatch({
+      type: "POST_PIZZAS",
+      payload: newPizza
+      
+    });
+ 
+  }
+  
   return (
     <div>
       <ul>
@@ -14,8 +32,7 @@ export default function PizzaListItem({ pizza }) {
         <ul>Description: {pizza.description}</ul>
       </ul>
       <br />
-      <button>Add to Cart</button>
-      <button>Delete</button>
+      <button onClick={addToCart}setNewPizza={setNewPizza} >Add to Cart</button>
       <br />
       <br />
     </div>
