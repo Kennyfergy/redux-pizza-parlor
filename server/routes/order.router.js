@@ -51,6 +51,18 @@ router.post('/', async (req, res) => {
     }
 });
 
+//get route to be added to admin page so they can check each user data
+router.get('/:id', (req, res) => {
+    const orderId = req.params.id;
+    pool.query('SELECT * FROM "orders" WHERE id=$1', [orderId]).then((result) => {
+        res.send(result.rows[0]);
+    }).catch((error) => {
+        console.log(`Error GET /api/order/${orderId}`, error);
+        res.sendStatus(500);  
+    });
+});
+
+
 // DELETE an order
 router.delete('/:id', (req, res) => {
     pool.query('DELETE FROM "orders" WHERE id=$1', [req.params.id]).then((result) => {

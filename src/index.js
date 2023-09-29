@@ -36,9 +36,8 @@ const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
           (pizza) => pizza.id === action.payload.pizza.id
         );
         return {
-          ...state,
           cart: state.cart.filter((pizza) => pizza.id !== action.payload.pizza.id),
-          totalPrice: totalPrice - Number(pizzaToRemove.price),
+          totalPrice: state.totalPrice - Number(pizzaToRemove.price),
         };
       default:
         return state;
@@ -56,13 +55,26 @@ const customerReducer = (state = {}, action ) => {
 }
 }
 
+
+const initialState = null;
+
+// const orderDetailsReducer = (state = initialState, action) => {
+//     switch (action.type) {
+//         case CLEAR_ORDER_DETAILS:
+//             return initialState;
+//         default:
+//             return state;
+//     }
+// };
+
 const store = createStore(
     combineReducers({
         //add reducers here
         pizzaReducer,
         orderListReducer,
         customerReducer,
-        cartReducer
+        cartReducer,
+        // orderDetailsReducer
     }),
     applyMiddleware(logger)
 )

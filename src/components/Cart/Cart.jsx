@@ -3,6 +3,8 @@ import "./Cart.css";
 import { useSelector } from "react-redux";
 import TotalPrice from "../TotalPrice/TotalPrice";
 import axios from "axios";
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+
 
 export default function Cart() {
   const cart = useSelector((state) => state.cartReducer);
@@ -11,9 +13,10 @@ export default function Cart() {
   console.log(cart);
   console.log("customer", customer);
 
-  // trackOrder = () => {
-  //   alert('Its on the way, be patient')
-  // }
+ const trackOrder = () => {
+    window.open('https://www.dominos.com/en/pages/tracker/#!/track/order/', '_blank')
+      
+  }
 
 
 
@@ -60,9 +63,10 @@ export default function Cart() {
       </table>
       <div>
         <button onClick={submitOrder}>Submit</button>
+        
       </div>
       <div>
-        {/* <button onClick={trackOrder}>Track Order</button> */}
+        <button onClick={trackOrder}>Track Order</button>
       </div>
     </div>
   );

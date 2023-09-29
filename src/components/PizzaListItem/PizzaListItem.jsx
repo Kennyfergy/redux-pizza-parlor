@@ -8,36 +8,42 @@ export default function PizzaListItem({ pizza }) {
   const [numberOfPizzas, setNumberOfPizzas] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
 
-
-// Action to add a pizza to the cart
-const addPizzaToCart = (pizza) => ({
+  // Action to add a pizza to the cart
+  const addPizzaToCart = (pizza) => ({
     type: "ADD_PIZZA_TO_CART",
-    payload: {id: pizza.id, name:pizza.name, quantity: numberOfPizzas, price: (Number(pizza.price) * numberOfPizzas)} 
+    payload: {
+      id: pizza.id,
+      name: pizza.name,
+      quantity: numberOfPizzas,
+      price: Number(pizza.price) * numberOfPizzas,
+    },
   });
 
-const addToCart = () => {
+  const addToCart = () => {
     setIsAdded(true);
 
     const pizzaToAdd = {
-      ...pizza // Include the entire pizza object
+      ...pizza, // Include the entire pizza object
     };
 
     dispatch(addPizzaToCart(pizzaToAdd));
     // ...
   };
 
-
   const removeFromCart = () => {
     setIsAdded(false);
     dispatch({
       type: "REMOVE_PIZZA_FROM_CART",
-      payload: { pizza: {id: pizza.id, quantity: numberOfPizzas}, price: (Number(pizza.price) * numberOfPizzas) }
+      payload: {
+        pizza: { id: pizza.id, quantity: numberOfPizzas },
+        price: Number(pizza.price) * numberOfPizzas,
+      },
     });
   };
 
   return (
     <tr>
-      <td>
+      <td className="image-container">
         <img src={pizza.image_path} alt="Pizza Image" />
       </td>
       <td>
@@ -48,14 +54,15 @@ const addToCart = () => {
               <th>Price</th>
               <th>Description</th>
               <th>Quantity</th>
+              <th id="blank"></th>
             </tr>
           </thead>
           <tbody id="menu-body">
             <tr>
-              <td>{pizza.name}</td>
-              <td>{pizza.price}</td>
-              <td>{pizza.description}</td>
-              <td>
+              <td id="info">{pizza.name}</td>
+              <td id="info">{pizza.price}</td>
+              <td id="info">{pizza.description}</td>
+              <td id="info">
                 <input
                   id="pizzaQ"
                   type="number"
@@ -63,9 +70,7 @@ const addToCart = () => {
                   onChange={(e) => setNumberOfPizzas(e.target.value)}
                 />
               </td>
-            </tr>
-            <tr>
-              <td>
+              <td id="info">
                 {isAdded ? (
                   <button onClick={removeFromCart}>Remove from Cart</button>
                 ) : (
@@ -77,6 +82,19 @@ const addToCart = () => {
                 )}
               </td>
             </tr>
+            {/* <tr>
+              <td>
+                {isAdded ? (
+                  <button onClick={removeFromCart}>Remove from Cart</button>
+                ) : (
+                  <div className="addBtn">
+                    <button className="add-cart" onClick={addToCart}>
+                      Add to Cart
+                    </button>
+                  </div>
+                )}
+              </td>
+            </tr> */}
           </tbody>
         </table>
       </td>

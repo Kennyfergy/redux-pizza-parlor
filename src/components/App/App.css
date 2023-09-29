@@ -14,8 +14,10 @@
 }
 
 .App-title {
-  font-size: 2em;
+  font-size: 3em;
   flex-grow: 1;
+  border: 1px solid ghostwhite;
+  border-radius: 3px;
 }
 
 .totalPrice {

@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import AdminListItem from "../AdminListItem/AdminListItem";
 
+
 export default function Admin() {
   const orderList = useSelector((store) => store.orderListReducer);
 
@@ -9,10 +10,7 @@ export default function Admin() {
     <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Time Order Placed</th>
-          <th>Type</th>
-          <th>Cost</th>
+          <th>Order Details</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +18,7 @@ export default function Admin() {
           return (<AdminListItem key={order.id} order={order} />
           );
         })}
+        
       </tbody>
     </table>
   );
