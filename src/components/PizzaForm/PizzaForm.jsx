@@ -42,7 +42,7 @@ export default function PizzaForm() {
   };
 
   return (
-    <section>
+    <section className="form">
       <h2>Customer Info</h2>
       <form
         className="add-pizza-form"
@@ -50,6 +50,7 @@ export default function PizzaForm() {
           handleSubmit;
         }}
       >
+        <div className="inputs">
         <TextField
           label="Name"
           variant="outlined"
@@ -70,7 +71,7 @@ export default function PizzaForm() {
         />
         <TextField
           label="Zip Code"
-          variant="standard"
+          variant="outlined"
           value={newZip}
           onChange={(event) => setNewZip(event.target.value)}
         />{" "}
@@ -104,6 +105,7 @@ export default function PizzaForm() {
         >
           Checkout
         </Button>
+        </div>
       </form>
     </section>
   );

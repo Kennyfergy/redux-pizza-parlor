@@ -17,6 +17,15 @@ input::placeholder {
     color: ghostwhite;
 }
 
+.inputs {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(77, 76, 76);
+    border-radius: 10px;
+    padding: 8px;
+    gap: 15px;
+}
+
 #submit-button {
     background-color: rgb(18, 8, 130);
     border-radius: 10px;
@@ -27,6 +36,7 @@ input::placeholder {
 
 #submit-button:hover {
     background-color: rgb(124, 120, 172);
+    transform: 1.2;
 }
 
 .radio-container {
@@ -44,21 +54,4 @@ input::placeholder {
 .delivery {
     display: flex;
     flex-direction: row;
-}
-
-.MuiInputBase-input {
-    font: inherit;
-    color: currentColor;
-    width: 100%;
-    /* background: none; */
-    box-sizing: content-box;
-    animation-name: mui-auto-fill-cancel;
-    letter-spacing: inherit;
-    animation-duration: 10ms;
-    background-color: aliceblue;
-}
-
-.MuiOutlinedInput-input {
-    padding: 18.5px 14px;
-    background-color: aliceblue;
 }
