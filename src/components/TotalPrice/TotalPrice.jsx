@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
 export default function TotalPrice(){
-    const price = useSelector((store) => store.orderListReducer);
+    const totalPrice = useSelector((store) => store.cartReducer.totalPrice);
     return <div>
-        Total Price: {price.price}
+        Total Price: ${totalPrice}
     </div>
 }

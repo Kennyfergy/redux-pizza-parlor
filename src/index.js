@@ -11,24 +11,46 @@ const pizzaReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_PIZZAS":
             return action.payload;
-            console.log('pizzaReducer: action payload',action.payload);
         default:
             return state;
     }
 }
 const orderListReducer = (state = [], action) => {
     switch (action.type) {
-        case "POST_PIZZAS":
-            return [...state, action.payload];
+        case "FETCH_ORDERS":
+            return action.payload;
         default:
             return state;
     }
 }
 
-const customerReducer = (state = [], action ) => {
+const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
+    switch (action.type) {
+      case "ADD_PIZZA_TO_CART":
+        return {
+          cart: [...state.cart, action.payload],
+          totalPrice: state.totalPrice + Number(action.payload.price),
+        };
+      case "REMOVE_PIZZA_FROM_CART":
+        const pizzaToRemove = state.cart.find(
+          (pizza) => pizza.id === action.payload.pizza.id
+        );
+        return {
+          ...state,
+          cart: state.cart.filter((pizza) => pizza.id !== action.payload.pizza.id),
+          totalPrice: totalPrice - Number(pizzaToRemove.price),
+        };
+      default:
+        return state;
+    }
+  };
+  
+
+
+const customerReducer = (state = {}, action ) => {
     switch (action.type){
         case "UPDATE_CUSTOMER":
-        return [action.payload];
+        return action.payload;
         default:
             return state;
 }
@@ -39,7 +61,8 @@ const store = createStore(
         //add reducers here
         pizzaReducer,
         orderListReducer,
-        customerReducer
+        customerReducer,
+        cartReducer
     }),
     applyMiddleware(logger)
 )

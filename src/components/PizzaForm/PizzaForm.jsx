@@ -39,11 +39,24 @@ export default function PizzaForm() {
     setNewCity("");
     setNewDeliveryMethod("");
     setNewZip("");
+
+  //   axios
+  //     .post("/orders/", {newName, newAddress, newCity, newZip, newDeliveryMethod})
+  //     .then((response) => {
+  //       console.log('POSTing orders', );
+  //     })
+  //     .catch((err) => console.log("Error in adding new order", err));
+  // };
+
+
+
   };
 
   return (
     <section className="form">
       <h2>Customer Info</h2>
+      <br />
+      <br />
       <form
         className="add-pizza-form"
         onSubmit={() => {
@@ -80,8 +93,9 @@ export default function PizzaForm() {
             Pickup
             <input
               type="radio"
-              name="DeliveryMethod"
+              name="deliveryMethod"
               value="Pickup"
+              checked={newDeliveryMethod === "Pickup"}
               onChange={(event) => setNewDeliveryMethod(event.target.value)}
             />
           </div>
@@ -90,8 +104,9 @@ export default function PizzaForm() {
             Delivery
             <input
               type="radio"
-              name="DeliveryMethod"
+              name="deliveryMethod"
               value="Delivery"
+              checked={newDeliveryMethod === "Delivery"}
               onChange={(event) => setNewDeliveryMethod(event.target.value)}
             />
           </div>

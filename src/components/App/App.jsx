@@ -20,6 +20,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     getPizzas();
+    getOrders();
   }, []);
   // GET axios w/ function
   const getPizzas = () => {
@@ -33,6 +34,20 @@ function App() {
       });
   };
 
+  //GET for order list
+   const getOrders = () => {
+    axios
+    .get("/api/order")
+    .then((response) => {
+      dispatch({ type: "FETCH_ORDERS", payload: response.data})
+    })
+    .catch((error) => {
+      console.log("Error in getting pizza list", error)
+    });
+  };
+    
+  
+
   // POST axios w/ function
   const postPizzas = () => {
     axios
@@ -40,7 +55,10 @@ function App() {
       .then((response) => {
         dispatch({
           type: "POST_PIZZAS",
-          payload: something.something,
+          payload: {
+            pizza: pizza.name,
+            price: pizza.price,
+          }
         });
       })
       .catch((err) => {

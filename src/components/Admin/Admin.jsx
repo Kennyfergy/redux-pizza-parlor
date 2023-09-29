@@ -17,7 +17,7 @@ export default function Admin() {
       </thead>
       <tbody>
         {orderList.map((order) => {
-          return (<ArtistListItem key={order.id} order={order} />
+          return (<AdminListItem key={order.id} order={order} />
           );
         })}
       </tbody>

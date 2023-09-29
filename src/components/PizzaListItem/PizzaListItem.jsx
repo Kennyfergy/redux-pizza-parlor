@@ -1,50 +1,85 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./PizzaListItem.css";
+import axios from "axios";
 
 export default function PizzaListItem({ pizza }) {
   const dispatch = useDispatch();
   const [numberOfPizzas, setNumberOfPizzas] = useState(0);
+  const [isAdded, setIsAdded] = useState(false);
 
-  const addToCart = () => {
-    const newLineItem = {
-      order_id: "FROM CUSTOMER INFORMATION",
-      pizza_id: pizza.id,
-      quantity: numberOfPizzas,
+
+// Action to add a pizza to the cart
+const addPizzaToCart = (pizza) => ({
+    type: "ADD_PIZZA_TO_CART",
+    payload: {id: pizza.id, name:pizza.name, quantity: numberOfPizzas, price: (Number(pizza.price) * numberOfPizzas)} 
+  });
+
+const addToCart = () => {
+    setIsAdded(true);
+
+    const pizzaToAdd = {
+      ...pizza // Include the entire pizza object
     };
-    //console.log('clickyclick');
+
+    dispatch(addPizzaToCart(pizzaToAdd));
+    // ...
+  };
+
+
+  const removeFromCart = () => {
+    setIsAdded(false);
     dispatch({
-      type: "POST_PIZZAS",
-      payload: newPizza,
+      type: "REMOVE_PIZZA_FROM_CART",
+      payload: { pizza: {id: pizza.id, quantity: numberOfPizzas}, price: (Number(pizza.price) * numberOfPizzas) }
     });
   };
-  ////need an axios to save the add to cart items to database so they refresh and it persists, **line items table in database
 
   return (
-    <table id="menu">
-      <th>
-        <br />
-        <br />
-        <img src={pizza.image_path} />
-        <br />
-        <br />
-        <hr />
-      </th>
-      <tr>Pizza: {pizza.name}</tr>
-      <br />
-      <tr>Price: {pizza.price}</tr>
-      <br />
-      <tr>Description: {pizza.description}</tr>
-
-      <br />
-      <input
-        type="number"
-        value={numberOfPizzas}
-        onChange={(e) => setNumberOfPizzas(e.target.value)}
-      />
-      <button onClick={addToCart}>Add to Cart</button>
-      <br />
-      <br />
-    </table>
+    <tr>
+      <td>
+        <img src={pizza.image_path} alt="Pizza Image" />
+      </td>
+      <td>
+        <table id="menu">
+          <thead>
+            <tr>
+              <th>Pizza</th>
+              <th>Price</th>
+              <th>Description</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="menu-body">
+            <tr>
+              <td>{pizza.name}</td>
+              <td>{pizza.price}</td>
+              <td>{pizza.description}</td>
+              <td>
+                <input
+                  id="pizzaQ"
+                  type="number"
+                  value={numberOfPizzas}
+                  onChange={(e) => setNumberOfPizzas(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                {isAdded ? (
+                  <button onClick={removeFromCart}>Remove from Cart</button>
+                ) : (
+                  <div className="addBtn">
+                    <button className="add-cart" onClick={addToCart}>
+                      Add to Cart
+                    </button>
+                  </div>
+                )}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
   );
 }

@@ -1,3 +1,47 @@
-#menu {
-    border: 1px solid black;
+.item {
+  display: flex;
+  flex-direction: column;
 }
+
+#menu {
+  width: 80%;
+  min-width: 200px;
+  /* border-collapse: collapse; */
+  margin-bottom: 20px;
+  border: 1px solid black;
+}
+
+.add-cart {
+    background-color: green;
+    border-radius: 5px;
+}
+
+.add-cart:hover {
+    background-color: springgreen;
+}
+
+#pizzaQ {
+    width: 50px;
+}
+
+.addBtn {
+    display: flex;
+    justify-content: right;
+}
+
+
+
+/* th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead tr {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+ */

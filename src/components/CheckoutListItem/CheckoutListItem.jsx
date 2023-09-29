@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 
 export default function CheckoutListItem() {
-    const cart = useSelector((store) => store.customerReducer);
+    const customer = useSelector((store) => store.customerReducer);
   return (
     // <tr>
     //   <td>{customer.name}</td>
@@ -11,15 +11,13 @@ export default function CheckoutListItem() {
     //   <td>{customer.DeliveryMethod}</td>
     // </tr>
     <tbody>
-    {cart.map((customer, index) => (
-        <tr key={index}>
+        <tr>
           <td id="td">{customer.name}</td>
           <td id="td">{customer.address}</td>
           <td id="td">{customer.city}</td>
           <td id="td">{customer.zip}</td>
           <td id="td">{customer.DeliveryMethod}</td>
         </tr>
-      ))}
     </tbody>
   );
 }
