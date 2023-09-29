@@ -7,17 +7,20 @@ export default function Checkout() {
   console.log("Customer Data:", cart);
 
   return (
-    <table className="cart-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Address</th>
-          <th>City</th>
-          <th>Zip Code</th>
-          <th>Delivery Method</th>
-        </tr>
-      </thead>
-      {/* <tbody>
+    <div>
+      <h2>Order Details:</h2>
+      <hr />
+      <table className="cart-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Zip Code</th>
+            <th>Delivery Method</th>
+          </tr>
+        </thead>
+        {/* <tbody>
       {cart.map((customer, index) => (
             <tr key={index}>
               <td>{customer.name}</td>
@@ -28,7 +31,8 @@ export default function Checkout() {
             </tr>
           ))} */}
         <CheckoutListItem />
-      {/* </tbody> */}
-    </table>
+        {/* </tbody> */}
+      </table>
+    </div>
   );
 }

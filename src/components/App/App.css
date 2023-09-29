@@ -21,7 +21,15 @@
   text-align: right;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: larger;
+}
+
 a:hover {
   background-color: blueviolet;
   color: ghostwhite;
+  font-size: larger;
 }

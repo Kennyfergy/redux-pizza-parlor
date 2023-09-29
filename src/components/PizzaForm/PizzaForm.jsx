@@ -3,6 +3,10 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./PizzaForm.css";
 
+// Material UI imports
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+
 export default function PizzaForm() {
   const [newName, setNewName] = useState("");
   const [newAddress, setNewAddress] = useState("");
@@ -26,8 +30,8 @@ export default function PizzaForm() {
       },
     });
     console.log("deliveryMethod", newDeliveryMethod);
-    
-    history.push("/checkout")
+
+    history.push("/checkout");
 
     //emptying input fields
     setNewName("");
@@ -46,56 +50,60 @@ export default function PizzaForm() {
           handleSubmit;
         }}
       >
-        
-        <input
-          id="input"
-          required
-          placeholder="Name"
+        <TextField
+          label="Name"
+          variant="outlined"
           value={newName}
           onChange={(event) => setNewName(event.target.value)}
         />
-        <input
-          id="input"
-          required
-          placeholder="Address"
+        <TextField
+          label="Address"
+          variant="outlined"
           value={newAddress}
           onChange={(event) => setNewAddress(event.target.value)}
         />
-        <input
-          id="input"
-          required
-          placeholder="City"
+        <TextField
+          label="City"
+          variant="outlined"
           value={newCity}
           onChange={(event) => setNewCity(event.target.value)}
         />
-        <input
-          id="input"
-          required
-          placeholder="Zip Code"
+        <TextField
+          label="Zip Code"
+          variant="standard"
           value={newZip}
           onChange={(event) => setNewZip(event.target.value)}
-        />
-        <label>
-          Pickup
-          <input
-            type="radio"
-            name="Pickup"
-            value="Pickup"
-            onChange={(event) => setNewDeliveryMethod(event.target.value)}
-          />
-        </label>
-        <label>
-          Delivery
-          <input
-            type="radio"
-            name="Delivery"
-            value="Delivery"
-            onChange={(event) => setNewDeliveryMethod(event.target.value)}
-          />
-        </label>
-        <button onClick={handleSubmit} className="checkBtn" type="submit">
-          Move to Order Page
-        </button>
+        />{" "}
+        <div className="radio-container">
+          <div className="pickup">
+            Pickup
+            <input
+              type="radio"
+              name="DeliveryMethod"
+              value="Pickup"
+              onChange={(event) => setNewDeliveryMethod(event.target.value)}
+            />
+          </div>
+          <br />
+          <div className="delivery">
+            Delivery
+            <input
+              type="radio"
+              name="DeliveryMethod"
+              value="Delivery"
+              onChange={(event) => setNewDeliveryMethod(event.target.value)}
+            />
+          </div>
+        </div>
+        <Button
+          id="submit-button"
+          onClick={handleSubmit}
+          variant="contained"
+          color="primary"
+          type="submit"
+        >
+          Checkout
+        </Button>
       </form>
     </section>
   );

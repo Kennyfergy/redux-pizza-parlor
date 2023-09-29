@@ -9,8 +9,12 @@ import PizzaForm from "../PizzaForm/PizzaForm";
 import Checkout from "../Checkout/Checkout";
 import Header from "../Header/Header";
 import Admin from "../Admin/Admin";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faClipboardList, faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShoppingCart,
+  faClipboardList,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const dispatch = useDispatch();
@@ -49,19 +53,23 @@ function App() {
       <div className="App">
         <Header />
         <br />
-        <ul>
-          <Link className="link" to="/">
-            <FontAwesomeIcon icon={faHome} /> Menu
-          </Link>
-        </ul>
-        <ul>
-          <Link className="link" to="/form">
-            <FontAwesomeIcon icon={faClipboardList} /> Order
-          </Link>
-        </ul>
-        <ul>
-          <Link to="/checkout"><FontAwesomeIcon icon={faShoppingCart} /> Cart</Link>
-        </ul>
+        <div className ='nav' >
+          <ul>
+            <Link className="link" to="/">
+              <FontAwesomeIcon icon={faHome} /> Menu
+            </Link>
+          </ul>
+          <ul>
+            <Link className="link" to="/form">
+              <FontAwesomeIcon icon={faClipboardList} /> Order
+            </Link>
+          </ul>
+          <ul>
+            <Link to="/checkout">
+              <FontAwesomeIcon icon={faShoppingCart} /> Cart
+            </Link>
+          </ul>
+        </div>
         <hr />
         <Route path="/admin">
           <Admin />
