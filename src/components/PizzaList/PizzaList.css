@@ -9,3 +9,7 @@ tbody tr:nth-child(even) {
 #menu {
     background-color: black;
 }
+
+h2 {
+    font-size: 24px;
+}
