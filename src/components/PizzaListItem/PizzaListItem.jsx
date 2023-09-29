@@ -13,17 +13,12 @@ export default function PizzaListItem({ pizza }) {
 
     const orderData = {
       // order_id: "FROM CUSTOMER INFORMATION",
-      
+
       pizza_id: pizza.id,
       quantity: numberOfPizzas,
       total: pizza.price,
-      pizzas: [{id: pizza.id, quantity: 1}]
+      // pizzas: [{id: pizza.id, quantity: 1}]
     };
-    //console.log('clickyclick');
-    // dispatch({
-    //   type: "POST_PIZZAS",
-    //   payload: { newPizza, price },
-    // });
 
     axios
       .post("/api/order", orderData)
@@ -73,6 +68,7 @@ export default function PizzaListItem({ pizza }) {
               <td>{pizza.description}</td>
               <td>
                 <input
+                  id="pizzaQ"  
                   type="number"
                   value={numberOfPizzas}
                   onChange={(e) => setNumberOfPizzas(e.target.value)}
@@ -80,15 +76,18 @@ export default function PizzaListItem({ pizza }) {
               </td>
             </tr>
             <tr>
-              
+              <td>
+                {isAdded ? (
+                  <button onClick={removeFromCart}>Remove from Cart</button>
+                ) : (
+                  <button className="add-cart" onClick={addToCart}>
+                    Add to Cart
+                  </button>
+                )}
+              </td>
             </tr>
           </tbody>
         </table>
-        {isAdded ? (
-          <button onClick={removeFromCart}>Remove from Cart</button>
-        ) : (
-          <button onClick={addToCart}>Add to Cart</button>
-        )}
       </td>
     </tr>
   );

@@ -5,10 +5,23 @@
 
 #menu {
   width: 80%;
-  
+  min-width: 200px;
   /* border-collapse: collapse; */
   margin-bottom: 20px;
   border: 1px solid black;
+}
+
+.add-cart {
+    background-color: green;
+    border-radius: 5px;
+}
+
+.add-cart:hover {
+    background-color: springgreen;
+}
+
+#pizzaQ {
+    width: 50px;
 }
 
 /* #menu-body {
