@@ -16,9 +16,12 @@
 .App-title {
   font-size: 3em;
   flex-grow: 1;
-  border: 1px solid ghostwhite;
-  border-radius: 3px;
 }
+
+/* .kjm {
+  border: 1px solid ghostwhite;
+  border-radius: 4px;
+} */
 
 .totalPrice {
   text-align: right;

@@ -6,6 +6,10 @@ import AdminListItem from "../AdminListItem/AdminListItem";
 export default function Admin() {
   const orderList = useSelector((store) => store.orderListReducer);
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
     <table>
       <thead>
@@ -18,7 +22,9 @@ export default function Admin() {
           return (<AdminListItem key={order.id} order={order} />
           );
         })}
-        
+        <div>
+      <button onClick={refreshPage}>Click to reload!</button>
+    </div>
       </tbody>
     </table>
   );
