@@ -13,11 +13,11 @@ export default function Checkout() {
       <table className="cart-table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Zip Code</th>
-            <th>Delivery Method</th>
+            <th id="th">Name</th>
+            <th id="th">Address</th>
+            <th id="th">City</th>
+            <th id="th">Zip Code</th>
+            <th id="th">Delivery Method</th>
           </tr>
         </thead>
         {/* <tbody>

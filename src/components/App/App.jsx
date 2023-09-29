@@ -61,7 +61,7 @@ function App() {
           </ul>
           <ul>
             <Link className="link" to="/form">
-              <FontAwesomeIcon icon={faClipboardList} /> Order
+              <FontAwesomeIcon icon={faClipboardList} /> Order Form
             </Link>
           </ul>
           <ul>
