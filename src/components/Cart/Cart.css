@@ -23,11 +23,13 @@ tbody tr:nth-child(odd) {
 .total {
     display: flex;
     justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     background-color: aqua;
     border: 2px solid black;
     border-radius: 5px;
     width: 10%;
     margin: 0 auto;
+
 
 }
