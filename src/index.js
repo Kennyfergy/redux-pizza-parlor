@@ -15,14 +15,14 @@ const pizzaReducer = (state = [], action) => {
             return state;
     }
 }
-// const orderListReducer = (state = [], action) => {
-//     switch (action.type) {
-//         case ""FETCH_ORDERS":
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
+const orderListReducer = (state = [], action) => {
+    switch (action.type) {
+        case "FETCH_ORDERS":
+            return action.payload;
+        default:
+            return state;
+    }
+}
 
 const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
     switch (action.type) {
@@ -60,7 +60,7 @@ const store = createStore(
     combineReducers({
         //add reducers here
         pizzaReducer,
-        // orderListReducer,
+        orderListReducer,
         customerReducer,
         cartReducer
     }),

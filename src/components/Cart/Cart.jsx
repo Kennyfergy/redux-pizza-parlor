@@ -32,7 +32,7 @@ axios
 }
   return (
     <div>
-        <div className="totalPrice">
+        <div className="total">
        <TotalPrice />
        </div>
     <table className="cart">

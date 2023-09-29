@@ -20,6 +20,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     getPizzas();
+    getOrders();
   }, []);
   // GET axios w/ function
   const getPizzas = () => {
@@ -34,7 +35,7 @@ function App() {
   };
 
   //GET for order list
-  /* const getOrders = () = {
+   const getOrders = () => {
     axios
     .get("/api/order")
     .then((response) => {
@@ -45,7 +46,7 @@ function App() {
     });
   };
     
-  */ 
+  
 
   // POST axios w/ function
   const postPizzas = () => {
