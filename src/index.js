@@ -47,10 +47,10 @@ const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
   
 
 
-const customerReducer = (state = [], action ) => {
+const customerReducer = (state = {}, action ) => {
     switch (action.type){
         case "UPDATE_CUSTOMER":
-        return [...state, action.payload];
+        return action.payload;
         default:
             return state;
 }

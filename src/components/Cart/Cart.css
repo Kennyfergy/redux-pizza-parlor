@@ -1,9 +1,21 @@
 .cart {
-    border: 2px solid black;
-    width: 75%;
-    min-width: 50%;
-    margin: 0 auto;
+  border: 2px solid black;
+  width: 75%;
+  min-width: 50%;
+  margin: 0 auto;
+  font-size: 18px;
 }
 
+.cart-head {
+  background-color: black;
+  color: white;
+  font-size: 18px;
+}
 
+tbody tr:nth-child(even) {
+  background-color: #26d2cf;
+}
 
+tbody tr:nth-child(odd) {
+    background-color: #9192a2;
+  }

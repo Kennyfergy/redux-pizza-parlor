@@ -8,22 +8,11 @@ export default function PizzaListItem({ pizza }) {
   const [numberOfPizzas, setNumberOfPizzas] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
 
-  //console.log(typeof pizza.price)
 
-//   const addToCart = () => {
-//     setIsAdded(true);
-// dispatch({ type: "ADD_PIZZA_TO_CART", payload: { pizza: {id: pizza.id, quantity: numberOfPizzas}, price: (Number(pizza.price) * numberOfPizzas) } })
-   
-//   };
 // Action to add a pizza to the cart
 const addPizzaToCart = (pizza) => ({
     type: "ADD_PIZZA_TO_CART",
     payload: {id: pizza.id, name:pizza.name, quantity: numberOfPizzas, price: (Number(pizza.price) * numberOfPizzas)} 
-    //   name: pizza.name, // Include the entire pizza object
-    //   price: (Number(pizza.price) * numberOfPizzas),
-    //   quantity: numberOfPizzas,   
-    // },
-    
   });
 
 const addToCart = () => {
