@@ -11,9 +11,9 @@ export default function Cart() {
   console.log(cart);
   console.log("customer", customer);
 
-  // trackOrder = () => {
-  //   alert('Its on the way, be patient')
-  // }
+  trackOrder = () => {
+    alert('Its on the way, be patient')
+  }
 
 
 
@@ -62,7 +62,7 @@ export default function Cart() {
         <button onClick={submitOrder}>Submit</button>
       </div>
       <div>
-        {/* <button onClick={trackOrder}>Track Order</button> */}
+        <button onClick={trackOrder}>Track Order</button>
       </div>
     </div>
   );
