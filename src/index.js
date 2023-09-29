@@ -17,29 +17,28 @@ const pizzaReducer = (state = [], action) => {
 }
 // const orderListReducer = (state = [], action) => {
 //     switch (action.type) {
-//         case "POST_PIZZAS":
-//             return [...state, action.payload];
+//         case ""FETCH_ORDERS":
+//             return action.payload;
 //         default:
 //             return state;
 //     }
 // }
-//kenny just brought this in
+
 const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
     switch (action.type) {
       case "ADD_PIZZA_TO_CART":
         return {
-          ...state,
           cart: [...state.cart, action.payload],
           totalPrice: state.totalPrice + Number(action.payload.price),
         };
       case "REMOVE_PIZZA_FROM_CART":
         const pizzaToRemove = state.cart.find(
-          (pizza) => pizza.id === action.payload
+          (pizza) => pizza.id === action.payload.pizza.id
         );
         return {
           ...state,
-          cart: state.cart.filter((pizza) => pizza.id !== action.payload),
-          totalPrice: state.totalPrice - Number(pizzaToRemove.price),
+          cart: state.cart.filter((pizza) => pizza.id !== action.payload.pizza.id),
+          totalPrice: totalPrice - Number(pizzaToRemove.price),
         };
       default:
         return state;

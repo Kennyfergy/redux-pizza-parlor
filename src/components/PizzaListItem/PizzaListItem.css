@@ -24,10 +24,10 @@
     width: 50px;
 }
 
-/* #menu-body {
-  
-  flex-direction: row;
-} */
+.addBtn {
+    display: flex;
+    justify-content: right;
+}
 
 /* tbody tr:nth-child(even) {
     background-color: #f2f2f2;

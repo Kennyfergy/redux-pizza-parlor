@@ -39,11 +39,24 @@ export default function PizzaForm() {
     setNewCity("");
     setNewDeliveryMethod("");
     setNewZip("");
+
+  //   axios
+  //     .post("/orders/", {newName, newAddress, newCity, newZip, newDeliveryMethod})
+  //     .then((response) => {
+  //       console.log('POSTing orders', );
+  //     })
+  //     .catch((err) => console.log("Error in adding new order", err));
+  // };
+
+
+
   };
 
   return (
     <section className="form">
       <h2>Customer Info</h2>
+      <br />
+      <br />
       <form
         className="add-pizza-form"
         onSubmit={() => {

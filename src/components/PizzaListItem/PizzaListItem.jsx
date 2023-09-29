@@ -8,41 +8,41 @@ export default function PizzaListItem({ pizza }) {
   const [numberOfPizzas, setNumberOfPizzas] = useState(0);
   const [isAdded, setIsAdded] = useState(false);
 
-  const addToCart = () => {
+  //console.log(typeof pizza.price)
+
+//   const addToCart = () => {
+//     setIsAdded(true);
+// dispatch({ type: "ADD_PIZZA_TO_CART", payload: { pizza: {id: pizza.id, quantity: numberOfPizzas}, price: (Number(pizza.price) * numberOfPizzas) } })
+   
+//   };
+// Action to add a pizza to the cart
+const addPizzaToCart = (pizza) => ({
+    type: "ADD_PIZZA_TO_CART",
+    payload: {id: pizza.id, name:pizza.name, quantity: numberOfPizzas, price: (Number(pizza.price) * numberOfPizzas)} 
+    //   name: pizza.name, // Include the entire pizza object
+    //   price: (Number(pizza.price) * numberOfPizzas),
+    //   quantity: numberOfPizzas,   
+    // },
+    
+  });
+
+const addToCart = () => {
     setIsAdded(true);
 
-    const orderData = {
-      // order_id: "FROM CUSTOMER INFORMATION",
-
-      pizza_id: pizza.id,
-      quantity: numberOfPizzas,
-      total: pizza.price,
-      // pizzas: [{id: pizza.id, quantity: 1}]
+    const pizzaToAdd = {
+      ...pizza // Include the entire pizza object
     };
 
-    axios
-      .post("/api/order", orderData)
-      .then(() => {
-        dispatch({
-          type: "ADD_PIZZA_TO_CART",
-          payload: pizza,
-        });
-        dispatch({
-          type: "UPDATE_TOTAL_PRICE",
-          payload: pizza.price,
-        });
-      })
-      .catch((error) => {
-        console.error("Error adding pizza to order:", error);
-      });
+    dispatch(addPizzaToCart(pizzaToAdd));
+    // ...
   };
-  ////need an axios to save the add to cart items to database so they refresh and it persists, **line items table in database
+
 
   const removeFromCart = () => {
     setIsAdded(false);
     dispatch({
       type: "REMOVE_PIZZA_FROM_CART",
-      payload: pizza.id,
+      payload: { pizza: {id: pizza.id, quantity: numberOfPizzas}, price: (Number(pizza.price) * numberOfPizzas) }
     });
   };
 
@@ -68,7 +68,7 @@ export default function PizzaListItem({ pizza }) {
               <td>{pizza.description}</td>
               <td>
                 <input
-                  id="pizzaQ"  
+                  id="pizzaQ"
                   type="number"
                   value={numberOfPizzas}
                   onChange={(e) => setNumberOfPizzas(e.target.value)}
@@ -80,9 +80,11 @@ export default function PizzaListItem({ pizza }) {
                 {isAdded ? (
                   <button onClick={removeFromCart}>Remove from Cart</button>
                 ) : (
-                  <button className="add-cart" onClick={addToCart}>
-                    Add to Cart
-                  </button>
+                  <div className="addBtn">
+                    <button className="add-cart" onClick={addToCart}>
+                      Add to Cart
+                    </button>
+                  </div>
                 )}
               </td>
             </tr>
