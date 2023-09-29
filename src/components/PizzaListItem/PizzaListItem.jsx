@@ -23,6 +23,8 @@ export default function PizzaListItem({ pizza }) {
   return (
     <table id="menu">
       <th>
+        <br />
+        <br />
         <img src={pizza.image_path} />
         <br />
         <br />
