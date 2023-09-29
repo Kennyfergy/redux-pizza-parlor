@@ -11,24 +11,47 @@ const pizzaReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_PIZZAS":
             return action.payload;
-            console.log('pizzaReducer: action payload',action.payload);
         default:
             return state;
     }
 }
-const orderListReducer = (state = [], action) => {
+// const orderListReducer = (state = [], action) => {
+//     switch (action.type) {
+//         case "POST_PIZZAS":
+//             return [...state, action.payload];
+//         default:
+//             return state;
+//     }
+// }
+//kenny just brought this in
+const cartReducer = (state = { cart: [], totalPrice: 0 }, action) => {
     switch (action.type) {
-        case "POST_PIZZAS":
-            return [...state, action.payload];
-        default:
-            return state;
+      case "ADD_PIZZA_TO_CART":
+        return {
+          ...state,
+          cart: [...state.cart, action.payload],
+          totalPrice: state.totalPrice + Number(action.payload.price),
+        };
+      case "REMOVE_PIZZA_FROM_CART":
+        const pizzaToRemove = state.cart.find(
+          (pizza) => pizza.id === action.payload
+        );
+        return {
+          ...state,
+          cart: state.cart.filter((pizza) => pizza.id !== action.payload),
+          totalPrice: state.totalPrice - Number(pizzaToRemove.price),
+        };
+      default:
+        return state;
     }
-}
+  };
+  
+
 
 const customerReducer = (state = [], action ) => {
     switch (action.type){
         case "UPDATE_CUSTOMER":
-        return [action.payload];
+        return [...state, action.payload];
         default:
             return state;
 }
@@ -38,8 +61,9 @@ const store = createStore(
     combineReducers({
         //add reducers here
         pizzaReducer,
-        orderListReducer,
-        customerReducer
+        // orderListReducer,
+        customerReducer,
+        cartReducer
     }),
     applyMiddleware(logger)
 )

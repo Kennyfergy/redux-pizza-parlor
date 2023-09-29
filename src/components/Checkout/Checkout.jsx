@@ -20,6 +20,7 @@ export default function Checkout() {
             <th id="th">Delivery Method</th>
           </tr>
         </thead>
+
         {/* <tbody>
       {cart.map((customer, index) => (
             <tr key={index}>

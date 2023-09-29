@@ -80,8 +80,9 @@ export default function PizzaForm() {
             Pickup
             <input
               type="radio"
-              name="DeliveryMethod"
+              name="deliveryMethod"
               value="Pickup"
+              checked={newDeliveryMethod === "Pickup"}
               onChange={(event) => setNewDeliveryMethod(event.target.value)}
             />
           </div>
@@ -90,8 +91,9 @@ export default function PizzaForm() {
             Delivery
             <input
               type="radio"
-              name="DeliveryMethod"
+              name="deliveryMethod"
               value="Delivery"
+              checked={newDeliveryMethod === "Delivery"}
               onChange={(event) => setNewDeliveryMethod(event.target.value)}
             />
           </div>

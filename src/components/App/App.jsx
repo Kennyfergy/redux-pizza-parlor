@@ -40,7 +40,7 @@ function App() {
       .then((response) => {
         dispatch({
           type: "POST_PIZZAS",
-          payload: something.something,
+          // payload: something.something,
         });
       })
       .catch((err) => {
