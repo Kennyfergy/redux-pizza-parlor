@@ -1,5 +1,5 @@
 # React Pizza Parlor
-
+This was a group project with  tmk-tran  and  jcolago
 ## Snapshots
 <img width="1497" alt="Screenshot 2023-10-04 at 12 57 24 PM" src="https://github.com/Kennyfergy/redux-pizza-parlor/assets/121765690/e8c55dc0-26de-4242-a090-4aa102dea45c">
 <img width="1496" alt="Screenshot 2023-10-04 at 12 58 16 PM" src="https://github.com/Kennyfergy/redux-pizza-parlor/assets/121765690/d866d37a-7c04-41a4-810e-d534650ba5d2">
